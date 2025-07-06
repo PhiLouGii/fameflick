@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FameFlick World - Virtual Social World</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-film"></i>
+                <span>FameFlick World</span>
+            </div>
+            <div class="user-info">
+                <div class="user-details">
+                    <div class="user-name">StellarGamer</div>
+                    <div class="user-coins">
+                        <i class="fas fa-coins"></i> 2,450
+                    </div>
+                </div>
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        </header>
+
+        <div class="game-area">
+            <div class="main-content">
+                <div class="tabs">
+                    <div class="tab active" data-tab="avatar">Avatar</div>
+                    <div class="tab" data-tab="room">My Room</div>
+                    <div class="tab" data-tab="shop">Shop</div>
+                    <div class="tab" data-tab="friends">Friends</div>
+                </div>
+
+                <div class="tab-content active" id="avatar-content">
+                    <div class="avatar-builder">
+                        <div class="avatar-preview-container">
+                            <div class="decorative-corner"></div>
+                            <div class="decorative-corner bottom"></div>
+                            <h3 class="avatar-preview-title">Your Avatar</h3>
+                            <div class="avatar-preview">
+                                <div class="avatar-canvas">
+                                    <div class="avatar-part avatar-face" id="avatar-face"></div>
+                                    <div class="avatar-part avatar-eyes" id="avatar-eyes"></div>
+                                    <div class="avatar-part avatar-mouth" id="avatar-mouth"></div>
+                                    <div class="avatar-part avatar-hair" id="avatar-hair"></div>
+                                    <div class="avatar-part avatar-accessory" id="avatar-accessory"></div>
+                                    <div class="avatar-part avatar-outfit" id="avatar-outfit"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="avatar-features">
+                                <button class="feature-toggle" id="toggle-face" title="Face Options">
+                                    <i class="fas fa-smile"></i>
+                                </button>
+                                <button class="feature-toggle" id="toggle-eyes" title="Eyes Options">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="feature-toggle active" id="toggle-hair" title="Hair Options">
+                                    <i class="fas fa-user"></i>
+                                </button>
+                                <button class="feature-toggle" id="toggle-outfit" title="Outfit Options">
+                                    <i class="fas fa-tshirt"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="avatar-actions">
+                                <button class="btn btn-secondary" id="random-avatar">
+                                    <i class="fas fa-random"></i> Random
+                                </button>
+                                <button class="btn btn-primary" id="save-avatar">
+                                    <i class="fas fa-save"></i> Save Avatar
+                                </button>
+                            </div>
+                        </div>
+                        <div class="customization-options">
+                            <div class="option-category">Face Shape</div>
+                            <div class="option-item selected" data-part="face" data-value="round">
+                                <div class="option-icon">
+                                    <i class="fas fa-circle"></i>
+                                </div>
+                                <div class="option-name">Round</div>
+                            </div>
+                            <div class="option-item" data-part="face" data-value="oval">
+                                <div class="option-icon">
+                                    <i class="fas fa-egg"></i>
+                                </div>
+                                <div class="option-name">Oval</div>
+                            </div>
+                            <div class="option-item" data-part="face" data-value="square">
+                                <div class="option-icon">
+                                    <i class="fas fa-square"></i>
+                                </div>
+                                <div class="option-name">Square</div>
+                            </div>
+                            <div class="option-item locked" data-part="face" data-value="heart">
+                                <div class="option-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="option-name">Heart</div>
+                                <div class="price-tag">250</div>
+                            </div>
+
+                            <div class="option-category">Skin Tone</div>
+                            <div class="option-item">
+                                <div class="color-picker" id="skin-colors">
+                                    <div class="color-option selected" style="background-color: #ffccaa;" data-color="#ffccaa"></div>
+                                    <div class="color-option" style="background-color: #e0ac69;" data-color="#e0ac69"></div>
+                                    <div class="color-option" style="background-color: #c68642;" data-color="#c68642"></div>
+                                    <div class="color-option" style="background-color: #8d5524;" data-color="#8d5524"></div>
+                                    <div class="color-option" style="background-color: #3d0c02;" data-color="#3d0c02"></div>
+                                    <div class="color-option locked" style="background-color: #ffb6c1;" data-color="#ffb6c1">
+                                        <i class="fas fa-lock" style="font-size: 10px; color: white;"></i>
+                                    </div>
+                                </div>
+                                <div class="option-name">Select Skin Tone</div>
+                            </div>
+
+                            <div class="option-category">Eyes</div>
+                            <div class="option-item selected" data-part="eyes" data-value="normal">
+                                <div class="option-icon">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <div class="option-name">Normal</div>
+                            </div>
+                            <div class="option-item" data-part="eyes" data-value="smiling">
+                                <div class="option-icon">
+                                    <i class="fas fa-smile-beam"></i>
+                                </div>
+                                <div class="option-name">Smiling</div>
+                            </div>
+                            <div class="option-item" data-part="eyes" data-value="wide">
+                                <div class="option-icon">
+                                    <i class="fas fa-surprise"></i>
+                                </div>
+                                <div class="option-name">Wide</div>
+                            </div>
+                            <div class="option-item" data-part="eyes" data-value="glasses">
+                                <div class="option-icon">
+                                    <i class="fas fa-glasses"></i>
+                                </div>
+                                <div class="option-name">Glasses</div>
+                            </div>
+                            <div class="option-item locked" data-part="eyes" data-value="cyber">
+                                <div class="option-icon">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="option-name">Cyber</div>
+                                <div class="price-tag">350</div>
+                            </div>
+
+                            <div class="option-category">Mouth</div>
+                            <div class="option-item selected" data-part="mouth" data-value="smile">
+                                <div class="option-icon">
+                                    <i class="fas fa-smile"></i>
+                                </div>
+                                <div class="option-name">Smile</div>
+                            </div>
+                            <div class="option-item" data-part="mouth" data-value="neutral">
+                                <div class="option-icon">
+                                    <i class="fas fa-meh"></i>
+                                </div>
+                                <div class="option-name">Neutral</div>
+                            </div>
+                            <div class="option-item" data-part="mouth" data-value="open">
+                                <div class="option-icon">
+                                    <i class="fas fa-surprise"></i>
+                                </div>
+                                <div class="option-name">Open</div>
+                            </div>
+                            <div class="option-item" data-part="mouth" data-value="big-smile">
+                                <div class="option-icon">
+                                    <i class="fas fa-grin-beam"></i>
+                                </div>
+                                <div class="option-name">Big Smile</div>
+                            </div>
+
+                            <div class="option-category">Hair Style</div>
+                            <div class="option-item selected" data-part="hair" data-value="short">
+                                <div class="option-icon">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="option-name">Short</div>
+                            </div>
+                            <div class="option-item" data-part="hair" data-value="long">
+                                <div class="option-icon">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="option-name">Long</div>
+                            </div>
+                            <div class="option-item" data-part="hair" data-value="curly">
+                                <div class="option-icon">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="option-name">Curly</div>
+                            </div>
+                            <div class="option-item" data-part="hair" data-value="ponytail">
+                                <div class="option-icon">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="option-name">Ponytail</div>
+                            </div>
+                            <div class="option-item locked" data-part="hair" data-value="mohawk">
+                                <div class="option-icon">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="option-name">Mohawk</div>
+                                <div class="price-tag">200</div>
+                            </div>
+
+                            <div class="option-category">Hair Color</div>
+                            <div class="option-item">
+                                <div class="color-picker" id="hair-colors">
+                                    <div class="color-option selected" style="background-color: #9b59b6;" data-color="#9b59b6"></div>
+                                    <div class="color-option" style="background-color: #e74c3c;" data-color="#e74c3c"></div>
+                                    <div class="color-option" style="background-color: #f1c40f;" data-color="#f1c40f"></div>
+                                    <div class="color-option" style="background-color: #2c3e50;" data-color="#2c3e50"></div>
+                                    <div class="color-option" style="background-color: #e67e22;" data-color="#e67e22"></div>
+                                    <div class="color-option locked" style="background: linear-gradient(45deg, #ff0000, #0000ff);" data-color="gradient">
+                                        <i class="fas fa-lock" style="font-size: 10px; color: white;"></i>
+                                    </div>
+                                </div>
+                                <div class="option-name">Select Hair Color</div>
+                            </div>
+
+                            <div class="option-category">Accessories</div>
+                            <div class="option-item selected" data-part="accessory" data-value="none">
+                                <div class="option-icon">
+                                    <i class="fas fa-ban"></i>
+                                </div>
+                                <div class="option-name">None</div>
+                            </div>
+                            <div class="option-item" data-part="accessory" data-value="glasses">
+                                <div class="option-icon">
+                                    <i class="fas fa-glasses"></i>
+                                </div>
+                                <div class="option-name">Glasses</div>
+                            </div>
+                            <div class="option-item" data-part="accessory" data-value="hat">
+                                <div class="option-icon">
+                                    <i class="fas fa-hat-cowboy"></i>
+                                </div>
+                                <div class="option-name">Hat</div>
+                            </div>
+                            <div class="option-item" data-part="accessory" data-value="earrings">
+                                <div class="option-icon">
+                                    <i class="fas fa-gem"></i>
+                                </div>
+                                <div class="option-name">Earrings</div>
+                            </div>
+                            <div class="option-item locked" data-part="accessory" data-value="crown">
+                                <div class="option-icon">
+                                    <i class="fas fa-crown"></i>
+                                </div>
+                                <div class="option-name">Crown</div>
+                                <div class="price-tag">500</div>
+                            </div>
+
+                            <div class="option-category">Outfits</div>
+                            <div class="option-item selected" data-part="outfit" data-value="casual">
+                                <div class="option-icon">
+                                    <i class="fas fa-tshirt"></i>
+                                </div>
+                                <div class="option-name">Casual</div>
+                            </div>
+                            <div class="option-item" data-part="outfit" data-value="formal">
+                                <div class="option-icon">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="option-name">Formal</div>
+                            </div>
+                            <div class="option-item" data-part="outfit" data-value="sporty">
+                                <div class="option-icon">
+                                    <i class="fas fa-basketball-ball"></i>
+                                </div>
+                                <div class="option-name">Sporty</div>
+                            </div>
+                            <div class="option-item" data-part="outfit" data-value="party">
+                                <div class="option-icon">
+                                    <i class="fas fa-glass-cheers"></i>
+                                </div>
+                                <div class="option-name">Party</div>
+                            </div>
+                            <div class="option-item locked" data-part="outfit" data-value="superhero">
+                                <div class="option-icon">
+                                    <i class="fas fa-mask"></i>
+                                </div>
+                                <div class="option-name">Superhero</div>
+                                <div class="price-tag">750</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other tab contents would go here -->
+            </div>
+
+            <div class="chat-box">
+                <div class="chat-header">
+                    <span>Chat Room</span>
+                    <span><i class="fas fa-users"></i> 24 Online</span>
+                </div>
+                <div class="online-users">
+                    <div class="user-badge">
+                        <div class="avatar"></div>
+                        <span>GamerGirl</span>
+                    </div>
+                    <div class="user-badge">
+                        <div class="avatar"></div>
+                        <span>StarPlayer</span>
+                    </div>
+                    <div class="user-badge">
+                        <div class="avatar"></div>
+                        <span>MovieBuff</span>
+                    </div>
+                </div>
+                <div class="chat-messages">
+                    <div class="message">
+                        <div class="message-sender">GamerGirl</div>
+                        <div>Check out my new avatar!</div>
+                    </div>
+                    <div class="message self">
+                        <div class="message-sender">You</div>
+                        <div>Working on mine right now!</div>
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" placeholder="Type your message...">
+                    <button><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i> Avatar saved successfully!
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
